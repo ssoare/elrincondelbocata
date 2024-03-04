@@ -37,10 +37,12 @@
 </header>
 
 <script>
-    const hb = document.querySelector(".hb")
-    const hb1 = document.querySelector(".hb1")
-    const hb2 = document.querySelector(".hb2")
-    const hb3 = document.querySelector(".hb3")
+    const hb = document.querySelector(".hb")!
+    const hb1 = document.querySelector(".hb1")!
+    const hb2 = document.querySelector(".hb2")!
+    const hb3 = document.querySelector(".hb3")!
+    const menu = document.querySelector('#menu')!
+
     hb.addEventListener('click', () => {
         menu.classList.toggle('translate-x-full')
         hb1.classList.toggle('active')
