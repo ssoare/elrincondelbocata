@@ -1,0 +1,105 @@
+<header class="fixed top-0 w-full h-12 items-center z-10">
+    <nav class="flex justify-between px-4 items-center bg-white">
+        <div class="logo text-xl">
+            <h1>El Rincón <span class="text-orange-500 block">del Bocata</span></h1>
+        </div>
+
+        <div class="hb">
+            <div class="hb1"></div>
+            <div class="hb2"></div>
+            <div class="hb3"></div>
+        </div>
+
+        <ul id="menu" class="absolute w-full h-svh top-16 left-0
+        flex flex-col justify-evenly items-center gap-8 py-8 text-center
+        transition translate-x-full
+        text-3xl bg-black text-orange-500 font-semibold uppercase">
+        <div >
+            <li class="my-4" ><a class="py-1 px-2" href="..">Inicio</a></li>
+            <li class="my-4" ><a class="py-1 px-2" href="/carta">Carta</a></li>
+            <li class="my-4" ><a class="py-1 px-2" href="/domicilio">A Domicilio</a></li>
+            <li class="my-4" ><a class="py-1 px-2" href="/contacto">Contacto</a></li>
+        </div>
+        <div>
+            <li class=""><a class="text-sm text-center" href="">Trabaja con nostros</a></li>
+            <li class=""><a class="text-sm text-center" href="">Síguenos:</a></li>
+            <div class="flex gap-4 justify-center my-2">
+                <img class="size-8" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="">
+                <img class="size-8" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="">
+                <img class="size-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" alt="">
+            </div>
+        </div>
+        </ul>
+    </nav>
+
+</header>
+
+<script>
+    const hb = document.querySelector(".hb")
+    const hb1 = document.querySelector(".hb1")
+    const hb2 = document.querySelector(".hb2")
+    const hb3 = document.querySelector(".hb3")
+    hb.addEventListener('click', () => {
+        menu.classList.toggle('translate-x-full')
+        hb1.classList.toggle('active')
+        hb2.classList.toggle('active')
+        hb3.classList.toggle('active')
+    })
+</script>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap') ;
+
+    .logo {
+        font-family: "Dancing Script", cursive;
+    }
+
+    .hb {
+        width: 35px;
+        height: 35px;
+        position: relative;
+    }
+
+    .hb1 , .hb2 , .hb3 {
+        width: 35px;
+        height: 5px;
+        background: #222;
+        position: absolute;
+        border-radius: 10px;
+        transition: .3s;
+    }
+
+    .hb1 {
+        top: 5px;
+    }
+
+    .hb2 {
+        top: 15px;
+    }
+
+    .hb3 {
+        top: 25px;
+    }
+
+    .hb1.active {
+        top: 15px;
+        rotate: calc(45deg + 360deg);
+        background-color: red;
+        background-color: rgb(249, 115, 22);
+    }
+    
+    .hb2.active {
+        scale: 0;
+    }
+    
+    .hb3.active {
+        top: 15px;
+        rotate: calc(-45deg - 360deg);
+        background-color: red;
+        background-color: rgb(249, 115, 22);
+    }
+
+</style>
