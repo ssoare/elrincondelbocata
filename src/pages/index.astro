@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="El Rincón del Bocata | Restaurante ">
+	<main class="mt-16">
+		<section 
+		id="hero"
+		class="w-full flex justify-center items-center flex-col "
+		>
+			Bienvenido a <span class="text-orange-400"> El Rincón del Bocata </span> 
+			<a href="/contacto">
+				<button class="border-2 border-white rounded-lg uppercase py-1 px-2 text-lg shadow-sm shadow-white">
+					reserva</button>
+			</a>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	#hero {
+		background: 
+		linear-gradient(#00000050, #00000050) ,
+		url('https://studyfinds.org/wp-content/uploads/2019/10/Multi-Generation-Family-Enjoying-Meal-Around-Table-At-Home-Together.jpeg?ver=1702400903')		;
+		background-size: cover;
+		color: white;
+		font-size: 32px;
+		height: calc(100svh - 4rem)
+	}
+</style>
