@@ -1,37 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Tapas from '../components/Tapas.astro';
+import MenuItem from '../components/MenuItem.astro' ;
 ---
 
 <Layout title="El Rincón del Bocata | Restaurante ">
     <main class="mt-16">
         <nav>
             <ul>
-                <li><a class="flex border-2 justify-center items-center h-40 my-4 text-white text-2xl" href="">Tapas</a></li>
-                <li><a class="flex border-2 justify-center items-center h-40 my-4 text-white text-2xl" href="">Ensaladas</a></li>
-                <li><a class="flex border-2 justify-center items-center h-40 my-4 text-white text-2xl" href="">Bocadillos</a></li>
+                <MenuItem nombre="bravas" , url="/test" , imagen="bravas.jpg" />
+                <MenuItem nombre="ensaladas" , url="/ensaladas" , imagen="ensaladas.jpg" />
+                <MenuItem nombre="torraetas" , url="/torraetas" , imagen="torraetas.jpg" />
+                <MenuItem nombre="sandwiches" , url="/sandwiches" , imagen="sandwiches.jpg" />
+                <MenuItem nombre="hamburguesas" , url="/hamburguesas" , imagen="hamburguesas.jpg" />
+                <MenuItem nombre="bocadillos" , url="/bocadillos" , imagen="bocadillos.jpg" />
+                <MenuItem nombre="platos combinados" , url="/platoscombinados" , imagen="platoscombinados.jpg" />
+                <MenuItem nombre="comida vegetariana / vegana" , url="/comidav" , imagen="comidav.jpg" />
             </ul>
         </nav>
-        <Tapas>
-    
-        </Tapas>
+        
     </main>
 </Layout>
-
-<style>
-    li:nth-child(1) {
-        background: linear-gradient(#00000050, #00000050) ,
-        url(../components/img/bravas.jpg) ;
-        background-size: cover;
-    }
-    li:nth-child(2) {
-        background: linear-gradient(#00000050, #00000050) ,
-        url(../components/img/ensalada.jpg) ;
-        background-size: cover;
-    }
-    li:nth-child(3) {
-        background: linear-gradient(#00000050, #00000050) ,
-        url(../components/img/bocadillos.jpg) ;
-        background-size: cover;
-    }
-</style>
