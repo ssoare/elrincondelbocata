@@ -1,7 +1,29 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Ensalada from '../../components/Ensalada.astro';
 ---
 
 <Layout title="El Rincón del Bocata | Restaurante ">
-
+    <main>
+        <section>
+                <h1 class="text-3xl font-bold text-center uppercase sticky top-12 bg-white h-20 py-8 my-4">Ensalada <hr class="my-4"></h1>
+            <Ensalada 
+            id="19" 
+            nombre='ensalada de la casa' 
+            precio='12.50' 
+            descripcion='Lechuga variada, tomate, zanahoria, remolacha, atún, maiz y huevo' />
+            
+            <Ensalada 
+            id='20' 
+            nombre='ensalada de queso de cabra' 
+            precio='12.50' 
+            descripcion='Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico' />
+            
+            <Ensalada 
+            id='22' 
+            nombre='ensalada césar' 
+            precio='12.50' 
+            descripcion='Lechuga, pechuga de pollo, queso y salsa césar' />
+        </section>
+    </main>
 </Layout>
