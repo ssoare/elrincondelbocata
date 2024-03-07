@@ -1,0 +1,17 @@
+---
+interface Props {
+    id: string;
+	nombre: string;
+    precio: string ;
+}
+
+const { id } = Astro.props;
+const { nombre } = Astro.props;
+const { precio } = Astro.props;
+---
+
+
+<article class="flex items-center justify-between py-8 px-4">
+    <h2 class="text-xl font-semibold capitalize basis-4/5">#{id} {nombre}</h2>
+    <p class="">{precio} €</p>
+</article>
