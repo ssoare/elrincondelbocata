@@ -1,7 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Phone from '../components/img/Phone.astro' ;
+import Whatsapp from '../components/img/Whatsapp.astro'
 ---
 
 <Layout title="El Rincón del Bocata | Restaurante ">
-
+    <main class="mt-20 flex flex-col justify-center items-center gap-8">
+        <section class=" text-center">
+            <h2 class="my-4 font-bold">Pl. de Tetuan, 37, 12001 Castelló de la Plana, Castelló</h2>
+            <button class="border-2 bg-orange-500 py-2 px-4 shadow-lg rounded-xl text-white text-lg">
+                <a  title="Dirección El Rincón del Bocata" href="https://maps.app.goo.gl/dLZjSYj1CSbLducL7" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
+            </button>
+        </section>
+        <section class=" text-center">
+            <h2 class="my-4 font-bold">Teléfono</h2>
+            <button class="border-2 bg-orange-500 py-2 px-4 shadow-lg rounded-xl text-white text-lg">
+                <a title="Llamar al Rincón del Bocata" href="tel:964964964" rel="noopener noreferrer">Llamar</a>
+            </button>
+            <button class="border-2 bg-orange-500 py-2 px-4 shadow-lg rounded-xl text-white text-lg">
+                <a href="whatsapp://send?&phone=+34964964964">Whatsapp</a>
+            </button>
+        </section>
+        <section class=" text-center">
+            <h2 class="my-4 font-bold">Horario</h2>
+            <div class="flex justify-between min-w-80 px-4">
+                <p>Lunes: </p>
+                <p class="text-red-500">Cerrado</p>
+            </div>
+            <div class="flex justify-between min-w-80 px-4">
+                <p>Martes a Sábado: </p>
+                <p>8:30 - 24:00</p>
+            </div>
+            <div class="flex justify-between min-w-80 px-4">
+                <p>Domingo:</p>
+                <p>8:30 - 17:00</p>
+            </div>
+        </section>
+        <section class=" text-center">
+            <h2 class="my-4 font-bold">Síguenos en redes sociales:</h2>
+            <div class="flex gap-4 justify-center my-2">
+                <img class="size-8" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="">
+                <img class="size-8" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="">
+                <img class="size-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" alt="">
+            </div>
+        </section>
+    </main>
 </Layout>
+
+<style>
+    main {
+        height: calc(100svh - 5rem);
+    }
+</style>
