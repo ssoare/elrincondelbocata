@@ -1,25 +1,56 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import MenuItem from '../components/MenuItem.astro' ;
+import Layout from "../layouts/Layout.astro" ;
+import Tapas from "../components/Tapas.astro";
+import Ensaladas from '../components/Ensaladas.astro'
+import Torraetas from '../components/Torraetas.astro'
 ---
 
-<Layout title="El Rincón del Bocata | Restaurante ">
-    <main class="mt-16">
-        <nav>
+<Layout title="El Rincón del Bocata | Restaurante">
+    <main class="mt-20">
+        <nav class="mx-4">
             <ul>
-                <MenuItem nombre="Tapas" , pagina="/carta/tapas" foto="bravas.jpg"/>
-                <MenuItem nombre="ensaladas" , pagina="/carta/ensaladas" foto="ensaladas.jpg"/>
-                <MenuItem nombre="torraetas" , pagina="/carta/torraetas" foto="torraetas.jpg"/>
-                <MenuItem nombre="sandwiches" , pagina="/carta/sandwiches" foto="sandwiches.jpg"/>
-                <MenuItem nombre="hamburguesas" , pagina="/carta/hamburguesas" foto='hamburguesas.jpg'/>
-                <MenuItem nombre="bocadillos" , pagina="/carta/bocadillos" foto='bocadillos.jpg'/>
-                <MenuItem nombre="platos combinados" , pagina="/carta/platoscombinados" foto='platoscombinados.jpg'/>
-                <MenuItem nombre="comida vegetariana / vegana" , pagina="/carta/comidav" foto='comidav.jpg'/>
+                <button id="tapas" class="button border-2 rounded-full py-2 px-4 transition"><li>Tapas</li></button>
+                <button id="ensaladas" class="button border-2 rounded-full py-2 px-4 transition"><li>Ensaladas</li></button>
+                <button id="torraetas" class="button border-2 rounded-full py-2 px-4 transition"><li>Torraetas</li></button>
             </ul>
         </nav>
-        
+        <section id="tapasList" class="mt-4 hidden">
+            <Tapas />
+        </section>
+        <section id="ensaladasList" class="mt-4 hidden">
+            <Ensaladas />
+        </section>
+        <section id="torraetasList" class="mt-4 hidden">
+            <Torraetas />
+        </section>
     </main>
 </Layout>
 
+
 <style>
+    .button.active {
+        background-color: #f97316;
+        color: white;
+    }
 </style>
+
+<script>
+    const menu = document.querySelectorAll('button')
+    const section = document.querySelectorAll('section')
+
+    menu.forEach((item) => {
+        item.addEventListener('click', () => {
+            menu.forEach((item) => {
+                item.classList.remove('active')
+            })
+            item.classList.toggle('active')
+            console.log(item.id)
+            section.forEach((id) => {
+                id.classList.add('hidden')
+            })
+            document.querySelector(`#${item.id}List`)?.classList.toggle('hidden')
+        })
+    })
+
+</script>
+
