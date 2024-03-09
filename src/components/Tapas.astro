@@ -1,4 +1,36 @@
-<article class="flex justify-between p-4">
-    <h2>Patatas fritas</h2>
-    <p>6,50 €</p>
-</article>
+<div id="tapasList">
+</div>
+
+<script>
+    const tapas  = {
+        'Patatas fritas' : 6.50 ,
+        'Patatas bravas' : 7.75 ,
+        'Patatas con bacon y salsa césar' : 9.00 ,
+        'Ensaladilla rusa' : 7.50 ,
+        'Calamares (caseros)' : 11.50 ,
+        'Sepia a la plancha con salsa verde' : 11.50 ,
+        'Puplito con cebolla' : 11 ,
+        'Boquerones en vinagre' : 8.50 ,
+        'Croquetas de pollo (8 ud.)' : 9 ,
+        'Champiñones con salsa verde' : 7.75 ,
+    } 
+    const tapasList = document.querySelector('#tapasList')
+    for (const key in tapas) {
+        const article = document.createElement('article')
+        article.classList.add('flex')
+        article.classList.add('justify-between')
+        article.classList.add('p-4')
+        article.classList.add('mt-4')
+        article.classList.add('items-center')
+        const h2 = document.createElement('h2')
+        h2.classList.add('text-xl')
+        h2.classList.add('font-semibold')
+        h2.classList.add('basis-4/5')
+        h2.innerText = key
+        const p = document.createElement('p')
+        p.innerText = `${tapas[key].toFixed(2)} €`
+        article.appendChild(h2)
+        article.appendChild(p)
+        tapasList!.appendChild(article)
+    }
+</script>

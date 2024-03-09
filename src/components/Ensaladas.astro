@@ -1,1 +1,44 @@
-<h1>ensaladas</h1>
+<div id="ensaladasList"></div>
+
+<script>
+    const ensaladas  = {
+        'Ensalada de la casa' : {
+            desc: 'Lechuga variada, tomate, zanahoria, remolacha, atún, maiz y huevo' ,
+            precio: 12.50 ,
+        } , 
+        'Ensalada de queso de cabra' : {
+            desc: 'Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico' ,
+            precio: 12.50 ,
+        } , 
+        'Ensalada César' : {
+            desc: 'Lechuga, pechuga de pollo, queso y salsa césar' ,
+            precio: 12.50 ,
+        } , 
+    } 
+    const ensaladasList = document.querySelector('#ensaladasList')
+    for (const key in ensaladas) {
+        const article = document.createElement('article')
+        console.log(`${ensaladas[key].desc}`)
+        article.classList.add('flex')
+        article.classList.add('justify-between')
+        article.classList.add('p-4')
+        article.classList.add('mt-4')
+        article.classList.add('items-center')
+        const h2 = document.createElement('h2')
+        h2.classList.add('text-xl')
+        h2.classList.add('font-semibold')
+        h2.classList.add('basis-4/5')
+        h2.innerText = key
+        const desc = document.createElement('p')
+        desc.classList.add('italic')
+        desc.classList.add('text-base')
+        desc.classList.add('font-normal')
+        desc.innerText = `${ensaladas[key].desc}`
+        h2.appendChild(desc)
+        const p = document.createElement('p')
+        p.innerText = `${ensaladas[key].precio.toFixed(2)} €`
+        article.appendChild(h2)
+        article.appendChild(p)
+        ensaladasList!.appendChild(article)
+    }
+</script>
