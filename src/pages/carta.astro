@@ -3,17 +3,26 @@ import Layout from "../layouts/Layout.astro" ;
 import Tapas from "../components/Tapas.astro";
 import Ensaladas from '../components/Ensaladas.astro'
 import Torraetas from '../components/Torraetas.astro'
+import Sandwiches from '../components/Sandwiches.astro'
+import Hamburguesas from '../components/Hamburguesas.astro'
+import Bocadillos from '../components/Bocadillos.astro'
+import PlatosCombinados from '../components/PlatosCombinados.astro'
+import ComidaVegetariana from '../components/ComidaVegetariana.astro'
 ---
 
 <Layout title="El Rincón del Bocata | Restaurante">
     <main class="mt-20">
         <nav class="w-full overflow-auto flex gap-2 px-4">
-                <button id="tapas" class="button border-2 rounded-full py-2 px-4 text-2xl transition">Tapas</button>
-                <button id="ensaladas" class="button border-2 rounded-full py-2 px-4 text-2xl transition">Ensaladas</button>
-                <button id="torraetas" class="button border-2 rounded-full py-2 px-4 text-2xl transition">Torraetas</button>
-                <button id="torraetas" class="button border-2 rounded-full py-2 px-4 text-2xl transition">Sandiwches</button>
-        </nav>
-        <section id="tapasList" class="mt-4 hidden">
+                <button id="tapas" class="button active border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Tapas</button>
+                <button id="ensaladas" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Ensaladas</button>
+                <button id="torraetas" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Torraetas</button>
+                <button id="sandwiches" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Sandiwches</button>
+                <button id="hamburguesas" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Hamburguesas</button>
+                <button id="bocadillos" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Bocadillos</button>
+                <button id="platosCombinados" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Platos combinados</button>
+                <button id="comidaVegetariana" class="button border-2 rounded-full py-2 px-4 text-2xl whitespace-nowrap transition">Comida vegetariana</button>
+            </nav>
+        <section id="tapasList" class="mt-4">
             <Tapas />
         </section>
         <section id="ensaladasList" class="mt-4 hidden">
@@ -22,8 +31,20 @@ import Torraetas from '../components/Torraetas.astro'
         <section id="torraetasList" class="mt-4 hidden">
             <Torraetas />
         </section>
-        <section id="ensaladasList" class="mt-4 hidden">
-            <Ensaladas />
+        <section id="sandwichesList" class="mt-4 hidden">
+            <Sandwiches />
+        </section>
+        <section id="hamburguesasList" class="mt-4 hidden">
+            <Hamburguesas />
+        </section>
+        <section id="bocadillosList" class="mt-4 hidden">
+            <Bocadillos />
+        </section>
+        <section id="platosCombinadosList" class="mt-4 hidden">
+            <PlatosCombinados />
+        </section>
+        <section id="comidaVegetarianaList" class="mt-4 hidden">
+            <ComidaVegetariana />
         </section>
     </main>
 </Layout>
@@ -40,6 +61,7 @@ import Torraetas from '../components/Torraetas.astro'
 </style>
 
 <script>
+    // @ts-nocheck
     const menu = document.querySelectorAll('button')
     const section = document.querySelectorAll('section')
 
@@ -52,7 +74,7 @@ import Torraetas from '../components/Torraetas.astro'
             section.forEach((id) => {
                 id.classList.add('hidden')
             })
-            document.querySelector(`#${item.id}List`)?.classList.toggle('hidden')
+            document.querySelector(`#${item.id}List`).classList.toggle('hidden')
         })
     })
 

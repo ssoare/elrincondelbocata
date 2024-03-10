@@ -1,1 +1,26 @@
-<h1>torraetas</h1>
+<div id="torraetasList"></div>
+
+<template id="torraetasTemplate"> 
+    <article class="flex justify-between p-4 mt-4 items-center">
+        <h2 class="text-xl font-semibold basis-4/5"></h2>
+        <p></p>
+    </article>
+    <hr class=" w-1/4 mx-auto">
+</template>
+
+<script>
+    // @ts-nocheck
+    const torraetas  = {
+        'Jamón a la placha y tomate' : 7 ,
+        'Sobrasada y queso' : 7 ,
+        'Anchoas y pimenton' : 7 ,
+        'Queso fresco y salmón' : 7 ,
+    } 
+    const torraetasList = document.querySelector('#torraetasList')
+    for (const key in torraetas) {
+        const clone = document.querySelector('#torraetasTemplate').content.cloneNode(true)
+        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('p').innerHTML = `${torraetas[key].toFixed(2)} €`
+        torraetasList.appendChild(clone)
+    }
+</script>

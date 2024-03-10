@@ -1,7 +1,15 @@
-<div id="tapasList">
-</div>
+<div id="tapasList"></div>
+
+<template id="tapasTemplate"> 
+    <article class="flex justify-between p-4 mt-4 items-center">
+        <h2 class="text-xl font-semibold basis-4/5"></h2>
+        <p></p>
+    </article>
+    <hr class="w-1/4 mx-auto">
+</template>
 
 <script>
+    // @ts-nocheck
     const tapas  = {
         'Patatas fritas' : 6.50 ,
         'Patatas bravas' : 7.75 ,
@@ -16,21 +24,9 @@
     } 
     const tapasList = document.querySelector('#tapasList')
     for (const key in tapas) {
-        const article = document.createElement('article')
-        article.classList.add('flex')
-        article.classList.add('justify-between')
-        article.classList.add('p-4')
-        article.classList.add('mt-4')
-        article.classList.add('items-center')
-        const h2 = document.createElement('h2')
-        h2.classList.add('text-xl')
-        h2.classList.add('font-semibold')
-        h2.classList.add('basis-4/5')
-        h2.innerText = key
-        const p = document.createElement('p')
-        p.innerText = `${tapas[key].toFixed(2)} €`
-        article.appendChild(h2)
-        article.appendChild(p)
-        tapasList!.appendChild(article)
+        const clone = document.querySelector('#tapasTemplate').content.cloneNode(true)
+        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('p').innerHTML = `${tapas[key].toFixed(2)} €`
+        tapasList?.appendChild(clone)
     }
 </script>

@@ -1,0 +1,37 @@
+<div id="hamburguesasList"></div>
+<template id="hamburguesasTemplate">
+    <article class="flex justify-between p-4 mt-4 items-center">
+        <div class="basis-4/5">
+            <h2 class="text-xl font-semibold"></h2>
+            <p class="italic"></p>
+        </div>
+        <p></p>
+    </article>
+    <hr class="w-1/4 mx-auto">
+</template>
+
+<script>
+    // @ts-nocheck
+    const hamburguesas  = {
+        'Hamburguesa, queso y huevo' : {
+            desc: '' ,
+            precio: 7 ,
+        } , 
+        'Hamburguesa Especial' : {
+            desc: 'Lechuga, queso, bacon, tomate, cebolla frita y huevo' ,
+            precio: 8 ,
+        } ,
+         'Hamburguesa Roquefort' : {
+            desc: 'Salsa roquefort, lechuga y bacon' ,
+            precio: 7.50 ,
+        } , 
+    } 
+    const hamburguesasList = document.querySelector('#hamburguesasList')
+    for (const key in hamburguesas) {
+        const clone = document.querySelector('#hamburguesasTemplate').content.cloneNode(true)
+        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('div p').innerHTML = `${hamburguesas[key].desc}`
+        clone.querySelector('article > p').innerHTML = `${hamburguesas[key].precio.toFixed(2)} €`
+        hamburguesasList.appendChild(clone)
+    }
+</script>

@@ -1,6 +1,17 @@
 <div id="ensaladasList"></div>
+<template id="ensaladasTemplate">
+    <article class="flex justify-between p-4 mt-4 items-center">
+        <div class="basis-4/5">
+            <h2 class="text-xl font-semibold"></h2>
+            <p class="italic"></p>
+        </div>
+        <p></p>
+    </article>
+    <hr class="w-1/4 mx-auto">
+</template>
 
 <script>
+    // @ts-nocheck
     const ensaladas  = {
         'Ensalada de la casa' : {
             desc: 'Lechuga variada, tomate, zanahoria, remolacha, atún, maiz y huevo' ,
@@ -17,28 +28,10 @@
     } 
     const ensaladasList = document.querySelector('#ensaladasList')
     for (const key in ensaladas) {
-        const article = document.createElement('article')
-        console.log(`${ensaladas[key].desc}`)
-        article.classList.add('flex')
-        article.classList.add('justify-between')
-        article.classList.add('p-4')
-        article.classList.add('mt-4')
-        article.classList.add('items-center')
-        const h2 = document.createElement('h2')
-        h2.classList.add('text-xl')
-        h2.classList.add('font-semibold')
-        h2.classList.add('basis-4/5')
-        h2.innerText = key
-        const desc = document.createElement('p')
-        desc.classList.add('italic')
-        desc.classList.add('text-base')
-        desc.classList.add('font-normal')
-        desc.innerText = `${ensaladas[key].desc}`
-        h2.appendChild(desc)
-        const p = document.createElement('p')
-        p.innerText = `${ensaladas[key].precio.toFixed(2)} €`
-        article.appendChild(h2)
-        article.appendChild(p)
-        ensaladasList!.appendChild(article)
+        const clone = document.querySelector('#ensaladasTemplate').content.cloneNode(true)
+        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('div p').innerHTML = `${ensaladas[key].desc}`
+        clone.querySelector('article > p').innerHTML = `${ensaladas[key].precio.toFixed(2)} €`
+        ensaladasList?.appendChild(clone)
     }
 </script>

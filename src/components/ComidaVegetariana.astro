@@ -1,0 +1,58 @@
+<div id="comidaVegetarianaList"></div>
+<template id="comidaVegetarianaTemplate">
+    <h1 class="text-center text-3xl font-semibold mt-8 text-orange-500"></h1>
+</template>
+<template id="clone2">
+    <article class="flex justify-between p-4 mt-4 items-center">
+        <div class="basis-4/5">
+            <h2 class="text-xl font-semibold"></h2>
+            <p class="italic"></p>
+        </div>
+        <p></p>
+    </article>
+    <hr class="w-1/4 mx-auto">
+</template>
+
+<script>
+    // @ts-nocheck
+    const comidaVegetariana  = {
+        'Tapas' : { 
+            'Patatas con queso y salsa césar' : { desc: '' , precio: 8.5 , } , 
+            'Croquetas de boletus' : { desc: '(10 ud.)' , precio: 8 , } , 
+            'Champiñones con salsa verde' : { desc: '' , precio: 7.75 , } , 
+        } ,
+        'Ensaladas' : { 
+            'Ensalada de queso de cabra' : { desc: 'Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico' , precio: 12.5 , } , 
+        } ,
+        'Hamburguesas' : { 
+            'Hamburguesa vegetal sabor barbacoa, lechuga, queso y huevo' : { desc: '' , precio: 8 , } , 
+            'Hamburguesa vegetal con salsa roquefort, lechuga y huevo' : { desc: '' , precio: 8 , } , 
+        } ,
+        'Bocadillos' : { 
+            'Seitan, queso, huevo, lechuga, tomate y cebolla frita' : { desc: '' , precio: 8 , } , 
+            'Seitan, tomate, queso y pimiento verde' : { desc: '' , precio: 8 , } , 
+            'Tortilla francesa, tomate y queso' : { desc: '' , precio: 7 , } , 
+            'Tofu, queso, huevo, lechuga y pimiento verde' : { desc: '' , precio: 7.50 , } , 
+            'Tortilla de patata' : { desc: '' , precio: 7 , } , 
+        } ,
+        'Platos combinados' : { 
+            'Longaniza de tofu, tortilla francesa y patatas' : { desc: '' , precio: 11.50 , } , 
+            'Hamburguesa vegetal, huevo y patatas' : { desc: '' , precio: 11 , } , 
+            'Seitan a la plancha, huevo y patatas' : { desc: '' , precio: 11 , } , 
+        } ,
+                
+    } 
+    const comidaVegetarianaList = document.querySelector('#comidaVegetarianaList')
+    for (const key in comidaVegetariana) {
+        const clone = document.querySelector('#comidaVegetarianaTemplate').content.cloneNode(true)
+        clone.querySelector('h1').innerHTML = key
+        for (const item in comidaVegetariana[key]) {
+            const clone2 = document.querySelector('#clone2').content.cloneNode(true)
+            clone2.querySelector('h2').innerHTML = item 
+            clone2.querySelector('div p').innerHTML = comidaVegetariana[key][item].desc;
+            clone2.querySelector('article > p').innerHTML = `${comidaVegetariana[key][item].precio.toFixed(2)} €`;
+            clone.appendChild(clone2)
+        }   
+        comidaVegetarianaList.appendChild(clone)
+    }
+</script>

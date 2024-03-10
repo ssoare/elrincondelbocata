@@ -1,0 +1,33 @@
+<div id="platosCombinadosList"></div>
+<template id="platosCombinadosTemplate">
+    <article class="flex justify-between p-4 mt-4 items-center">
+        <div class="basis-4/5">
+            <h2 class="text-xl font-semibold"></h2>
+            <p class="italic"></p>
+        </div>
+        <p></p>
+    </article>
+    <hr class="w-1/4 mx-auto">
+</template>
+
+<script>
+    // @ts-nocheck
+    const platosCombinados  = {
+        'Lomo, bacon, huevo y patatas' : { desc: '' , precio: 11.50 , } , 
+        'Pechuga, huevo y patatas' : { desc: '' , precio: 11.50 , } , 
+        'Secreto ibérico y patatas' : { desc: '' , precio: 12.50 , } , 
+        'Chuletas de cordero y patatas' : { desc: '' , precio: 17 , } , 
+        'Entrecot de ternera y patatas' : { desc: '' , precio: 17.50 , } , 
+        'Sepia a la plancha con salsa verde' : { desc: '' , precio: 16 , } , 
+        'Emperador a la plancha con salsa verde' : { desc: '' , precio: 16 , } , 
+                
+    } 
+    const platosCombinadosList = document.querySelector('#platosCombinadosList')
+    for (const key in platosCombinados) {
+        const clone = document.querySelector('#platosCombinadosTemplate').content.cloneNode(true)
+        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('div p').innerHTML = `${platosCombinados[key].desc}`
+        clone.querySelector('article > p').innerHTML = `${platosCombinados[key].precio.toFixed(2)} €`
+        platosCombinadosList?.appendChild(clone)
+    }
+</script>
