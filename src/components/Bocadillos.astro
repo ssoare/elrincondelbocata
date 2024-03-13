@@ -1,6 +1,6 @@
 <div id="bocadillosList"></div>
 <template id="bocadillosTemplate">
-    <article class="flex justify-between p-4 mt-4 items-center">
+    <article class="flex justify-between p-4 mt-4 items-center max-w-[800px] mx-auto">
         <div class="basis-4/5">
             <h2 class="text-xl font-semibold"></h2>
             <p class="italic"></p>
@@ -13,31 +13,31 @@
 <script>
     // @ts-nocheck
     const bocadillos  = {
-        'Longaiza, tomate y pimiento verde' : { desc: '' , precio: 7.5 , } , 
-        'Jamón con tomate' : { desc: '' , precio: 7 , } , 
-        'Calamares con ajoaceite' : { desc: '' , precio: 8 , } , 
-        'Sepia a la plancha con salsa verde' : { desc: '' , precio: 8.50 , } , 
-        'Atún y anchoa' : { desc: '' , precio: 7.50 , } , 
-        'Lomo, queso y huevo' : { desc: '' , precio: 7 , } , 
-        'Lomo, jamón a la plancha, pimiento frito y tomate' : { desc: '' , precio: 8 , } , 
-        'Lomo, queso, paté, bacon, huevo, lechuga, tomate y cebolla frita' : { desc: '' , precio: 8.50 , } , 
-        'Bacon, queso y tomate' : { desc: '' , precio: 7.50 , } , 
-        'Bacon, queso, huevo y tomate' : { desc: '' , precio: 8 , } , 
-        'Paté, queso y tomate' : { desc: '' , precio: 7.50 , } , 
-        'Paté, queso, huevo y tomate' : { desc: '' , precio: 8 , } , 
-        'Pechuga, queso y mayonesa' : { desc: '' , precio: 7.50 , } , 
-        'Pechuga, jamón a la plancha, lechuga, mayonesa y cebolla frita' : { desc: '' , precio: 7 , } , 
-        'Ternera, queso y mayonesa' : { desc: '' , precio: 8.50 , } , 
-        'Ternera, jamón a la plancha, queso, ajoaceite y pimiento verde' : { desc: '' , precio: 8.50 , } , 
-        'Tortilla francesa con tomate' : { desc: '' , precio: 7 , } , 
-        'Tortilla al gusto' : { desc: '(Jamón, atún, queso)' , precio: 7.50 , } , 
-        'Tortilla de patatas' : { desc: '' , precio: 7 , } , 
+        'Longaiza, tomate y pimiento verde' : { id:'35' , desc: '' , precio: 7.5 , } , 
+        'Jamón con tomate' : { id:'36' , desc: '' , precio: 7 , } , 
+        'Calamares con ajoaceite' : { id:'38' , desc: '' , precio: 8 , } , 
+        'Sepia a la plancha con salsa verde' : { id:'39' , desc: '' , precio: 8.50 , } , 
+        'Atún y anchoa' : { id:'40' , desc: '' , precio: 7.50 , } , 
+        'Lomo, queso y huevo' : { id:'42' , desc: '' , precio: 7 , } , 
+        'Lomo, jamón a la plancha, pimiento frito y tomate' : { id:'45' , desc: '' , precio: 8 , } , 
+        'Lomo, queso, paté, bacon, huevo, lechuga, tomate y cebolla frita' : { id:'46' , desc: '' , precio: 8.50 , } , 
+        'Bacon, queso y tomate' : { id:'47' , desc: '' , precio: 7.50 , } , 
+        'Bacon, queso, huevo y tomate' : { id:'48' , desc: '' , precio: 8 , } , 
+        'Paté, queso y tomate' : { id:'50' , desc: '' , precio: 7.50 , } , 
+        'Paté, queso, huevo y tomate' : { id:'51' , desc: '' , precio: 8 , } , 
+        'Pechuga, queso y mayonesa' : { id:'54' , desc: '' , precio: 7.50 , } , 
+        'Pechuga, jamón a la plancha, lechuga, mayonesa y cebolla frita' : { id:'55' , desc: '' , precio: 7 , } , 
+        'Ternera, queso y mayonesa' : { id:'58' , desc: '' , precio: 8.50 , } , 
+        'Ternera, jamón a la plancha, queso, ajoaceite y pimiento verde' : { id:'59' , desc: '' , precio: 8.50 , } , 
+        'Tortilla francesa con tomate' : {id:'60' , desc: '' , precio: 7 , } , 
+        'Tortilla al gusto' : {id:'61' , desc: '(Jamón, atún, queso)' , precio: 7.50 , } , 
+        'Tortilla de patatas' : {id:'63' , desc: '' , precio: 7 , } , 
                 
     } 
     const bocadillosList = document.querySelector('#bocadillosList')
     for (const key in bocadillos) {
         const clone = document.querySelector('#bocadillosTemplate').content.cloneNode(true)
-        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('h2').innerHTML = `${bocadillos[key].id}. ${key}`
         clone.querySelector('div p').innerHTML = `${bocadillos[key].desc}`
         clone.querySelector('article > p').innerHTML = `${bocadillos[key].precio.toFixed(2)} €`
         bocadillosList?.appendChild(clone)

@@ -1,32 +1,39 @@
 <div id="tapasList"></div>
 
 <template id="tapasTemplate"> 
-    <article class="flex justify-between p-4 mt-4 items-center">
-        <h2 class="text-xl font-semibold basis-4/5"></h2>
-        <p></p>
+    <article class="border-2 shadow-xl p-2 rounded-lg mx-2 my-4 max-w-96">
+        <img class="rounded-lg" src="" alt="">
+        <div class="flex justify-between mt-2 items-center max-w-[800px] mx-auto">
+            <h2 class="text-xl font-semibold basis-4/5"></h2>
+            <p></p>
+        </div>
     </article>
-    <hr class="w-1/4 mx-auto">
 </template>
 
 <script>
     // @ts-nocheck
     const tapas  = {
-        'Patatas fritas' : 6.50 ,
-        'Patatas bravas' : 7.75 ,
-        'Patatas con bacon y salsa césar' : 9.00 ,
-        'Ensaladilla rusa' : 7.50 ,
-        'Calamares (caseros)' : 11.50 ,
-        'Sepia a la plancha con salsa verde' : 11.50 ,
-        'Puplito con cebolla' : 11 ,
-        'Boquerones en vinagre' : 8.50 ,
-        'Croquetas de pollo (8 ud.)' : 9 ,
-        'Champiñones con salsa verde' : 7.75 ,
+        'Patatas fritas' : { id: 1, img: '../../public/img/tapas.jpg' , precio: 6.50 , } ,
+        'Patatas bravas' : { id: 2, img: '' , precio: 7.75 , } ,
+        'Patatas con bacon y salsa césar' : { id: 3, img: '' , precio: 9 , } ,
+        'Ensaladilla rusa' : { id: 4, img: '' , precio: 7.50 , } ,
+        'Calamares (caseros)': { id: 5, img: '' , precio: 11.50 , } ,
+        'Sepia a la plancha con salsa verde' : { id: 7, img: '' , precio: 11.50 , } ,
+        'Puplito con cebolla' : { id: 10, img: '' , precio: 11 , } ,
+        'Boquerones en vinagre' : { id: 11, img: '' , precio: 8.50 , } ,
+        'Croquetas de pollo (8 ud.)' : { id: 12, img: '' , precio: 9 , } ,
+        'Champiñones con salsa verde' : { id: 14, img: '' , precio: 7.75 , } ,
+        'Revuelto de gambas, ajetes y trigueros' : { id: 15, img: '' , precio: 8.50 , } ,
+        'Tabla de jamón y queso' : { id: 17, img: '' , precio: 18 , } ,
+        'Carne en salsa de tomate y pimiento rojo' : { id: 18, img: '' , precio: 9 , } ,
+        'Pincho de tortilla' : { id: '', img: '' , precio: 7 , } ,
     } 
     const tapasList = document.querySelector('#tapasList')
     for (const key in tapas) {
         const clone = document.querySelector('#tapasTemplate').content.cloneNode(true)
-        clone.querySelector('h2').innerHTML = key
-        clone.querySelector('p').innerHTML = `${tapas[key].toFixed(2)} €`
-        tapasList?.appendChild(clone)
+        clone.querySelector('h2').innerHTML = `${tapas[key].id}. ${key}`
+        clone.querySelector('img').src = `${tapas[key].img}`
+        clone.querySelector('p').innerHTML = `${tapas[key].precio.toFixed(2)} €`
+        tapasList.appendChild(clone)
     }
 </script>
