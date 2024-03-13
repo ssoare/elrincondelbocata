@@ -24,5 +24,6 @@
         clone.querySelector('h2').innerHTML = `${torraetas[key].id}. ${key}`
         clone.querySelector('p').innerHTML = `${torraetas[key].precio.toFixed(2)} €`
         torraetasList.appendChild(clone)
+        torraetasList.classList.add('flex' , 'flex-wrap' , 'justify-center', )
     }
 </script>
