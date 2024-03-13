@@ -1,13 +1,17 @@
 <div id="platosCombinadosList"></div>
 <template id="platosCombinadosTemplate">
-    <article class="flex justify-between p-4 mt-4 items-center max-w-[800px] mx-auto">
-        <div class="basis-4/5">
-            <h2 class="text-xl font-semibold"></h2>
-            <p class="italic"></p>
+    <article class=" w-96 h-96 border-2 m-4 rounded-lg shadow-lg flex flex-col justify-evenly gap-8 items-center p-4">
+        <img 
+        class="max-w-52 aspect-video" 
+        src="https://raw.githubusercontent.com/ssoare/elrincondelbocata/d51d0cc163682945f99bc17cf4725a006770571c/public/img/no-image.svg" alt="">
+        <div class="flex justify-between items-center w-full">
+            <div class="basis-4/5">
+                <h2 class="text-xl font-semibold"></h2>
+                <p class="desc italic text-gray-600"></p>
+            </div>
+            <p class="precio"></p>
         </div>
-        <p></p>
     </article>
-    <hr class="w-1/4 mx-auto">
 </template>
 
 <script>
@@ -26,8 +30,10 @@
     for (const key in platosCombinados) {
         const clone = document.querySelector('#platosCombinadosTemplate').content.cloneNode(true)
         clone.querySelector('h2').innerHTML = `${platosCombinados[key].id}. ${key}`
-        clone.querySelector('div p').innerHTML = `${platosCombinados[key].desc}`
-        clone.querySelector('article > p').innerHTML = `${platosCombinados[key].precio.toFixed(2)} €`
+        clone.querySelector('.desc').innerHTML = `${platosCombinados[key].desc}`
+        clone.querySelector('.precio').innerHTML = `${platosCombinados[key].precio.toFixed(2)} €`
         platosCombinadosList?.appendChild(clone)
+        platosCombinadosList.classList.add('flex' , 'flex-wrap' , 'justify-center',)
+
     }
 </script>
