@@ -13,23 +13,14 @@
 <script>
     // @ts-nocheck
     const sandwiches  = {
-        'Sandwich mixto' : {
-            desc: 'Jamón York y queso' ,
-            precio: 5 ,
-        } , 
-        'Sandwich de atún' : {
-            desc: 'Atún, lechuga, tomate, huevo y mayonesa' ,
-            precio: 6.50 ,
-        } , 
-        'Sandwich César' : {
-            desc: 'Pechuga de pollo, lechuga, queso y salsa césar' ,
-            precio: 7 , 
-        } , 
+        'Sandwich mixto' : { id:  27, desc: 'Jamón York y queso' , precio: 5 , } , 
+        'Sandwich de atún' : { id: 28, desc: 'Atún, lechuga, tomate, huevo y mayonesa' , precio: 6.50 , } , 
+        'Sandwich César' : { id: 30, desc: 'Pechuga de pollo, lechuga, queso y salsa césar' , precio: 7 , } , 
     } 
     const sandwichesList = document.querySelector('#sandwichesList')
     for (const key in sandwiches) {
         const clone = document.querySelector('#sandwichesTemplate').content.cloneNode(true)
-        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('h2').innerHTML = `${sandwiches[key].id}. ${key}`
         clone.querySelector('div p').innerHTML = `${sandwiches[key].desc}`
         clone.querySelector('article > p').innerHTML = `${sandwiches[key].precio.toFixed(2)} €`
         sandwichesList?.appendChild(clone)

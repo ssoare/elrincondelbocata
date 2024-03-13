@@ -14,14 +14,17 @@
     // @ts-nocheck
     const ensaladas  = {
         'Ensalada de la casa' : {
+            id: 19 ,
             desc: 'Lechuga variada, tomate, zanahoria, remolacha, atún, maiz y huevo' ,
             precio: 12.50 ,
         } , 
         'Ensalada de queso de cabra' : {
+            id : 20 ,
             desc: 'Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico' ,
             precio: 12.50 ,
         } , 
         'Ensalada César' : {
+            id: 22,
             desc: 'Lechuga, pechuga de pollo, queso y salsa césar' ,
             precio: 12.50 ,
         } , 
@@ -29,7 +32,7 @@
     const ensaladasList = document.querySelector('#ensaladasList')
     for (const key in ensaladas) {
         const clone = document.querySelector('#ensaladasTemplate').content.cloneNode(true)
-        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('h2').innerHTML = `${ensaladas[key].id}. ${key}`
         clone.querySelector('div p').innerHTML = `${ensaladas[key].desc}`
         clone.querySelector('article > p').innerHTML = `${ensaladas[key].precio.toFixed(2)} €`
         ensaladasList?.appendChild(clone)

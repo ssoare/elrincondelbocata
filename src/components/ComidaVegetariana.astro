@@ -1,45 +1,45 @@
 <div id="comidaVegetarianaList"></div>
 <template id="comidaVegetarianaTemplate">
-        <h1 class="text-center text-3xl font-semibold mt-8 text-orange-500"></h1>
+        <h1 class="text-center text-3xl font-semibold my-12 text-orange-500"></h1>
 </template>
 <template id="clone2">
         <article class="flex justify-between p-4 mt-4 items-center max-w-[800px] mx-auto">
             <div class="basis-4/5">
                 <h2 class="text-xl font-semibold"></h2>
                 <p class="italic"></p>
-            <p></p>
+            </div>
+            <p id="precio"></p>
         </article>
 
-    </div>
-    <!-- <hr class="w-1/4 max-w-[200px] mx-auto my-4">    --> 
+    <hr class="w-1/4 max-w-[200px] mx-auto my-4">    
 </template>
 
 <script>
     // @ts-nocheck
     const comidaVegetariana  = {
         'Tapas' : { 
-            'Patatas con queso y salsa césar' : { desc: '' , precio: 8.5 , } , 
-            'Croquetas de boletus' : { desc: '(10 ud.)' , precio: 8 , } , 
-            'Champiñones con salsa verde' : { desc: '' , precio: 7.75 , } , 
+            'Patatas con queso y salsa césar' : {id: 86, desc: '' , precio: 8.5 , } , 
+            'Croquetas de boletus' : {id: 87, desc: '(10 ud.)' , precio: 8 , } , 
+            'Champiñones con salsa verde' : {id: 89, desc: '' , precio: 7.75 , } , 
         } ,
         'Ensaladas' : { 
-            'Ensalada de queso de cabra' : { desc: 'Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico' , precio: 12.5 , } , 
+            'Ensalada de queso de cabra' : {id: 94, desc: 'Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico' , precio: 12.5 , } , 
         } ,
         'Hamburguesas' : { 
-            'Hamburguesa vegetal sabor barbacoa, lechuga, queso y huevo' : { desc: '' , precio: 8 , } , 
-            'Hamburguesa vegetal con salsa roquefort, lechuga y huevo' : { desc: '' , precio: 8 , } , 
+            'Hamburguesa vegetal sabor barbacoa, lechuga, queso y huevo' : {id: 97, desc: '' , precio: 8 , } , 
+            'Hamburguesa vegetal con salsa roquefort, lechuga y huevo' : {id: 99, desc: '' , precio: 8 , } , 
         } ,
         'Bocadillos' : { 
-            'Seitan, queso, huevo, lechuga, tomate y cebolla frita' : { desc: '' , precio: 8 , } , 
-            'Seitan, tomate, queso y pimiento verde' : { desc: '' , precio: 8 , } , 
-            'Tortilla francesa, tomate y queso' : { desc: '' , precio: 7 , } , 
-            'Tofu, queso, huevo, lechuga y pimiento verde' : { desc: '' , precio: 7.50 , } , 
-            'Tortilla de patata' : { desc: '' , precio: 7 , } , 
+            'Seitan, queso, huevo, lechuga, tomate y cebolla frita' : {id: 102, desc: '' , precio: 8 , } , 
+            'Seitan, tomate, queso y pimiento verde' : {id: 103, desc: '' , precio: 8 , } , 
+            'Tofu, queso, huevo, lechuga y pimiento verde' : {id: 107, desc: '' , precio: 7.50 , } , 
+            'Tortilla francesa, tomate y queso' : {id: 108, desc: '' , precio: 7 , } , 
+            'Tortilla de patata' : {id: 109, desc: '' , precio: 7 , } , 
         } ,
         'Platos combinados' : { 
-            'Longaniza de tofu, tortilla francesa y patatas' : { desc: '' , precio: 11.50 , } , 
-            'Hamburguesa vegetal, huevo y patatas' : { desc: '' , precio: 11 , } , 
-            'Seitan a la plancha, huevo y patatas' : { desc: '' , precio: 11 , } , 
+            'Longaniza de tofu, tortilla francesa y patatas' : {id: 110, desc: '' , precio: 11.50 , } , 
+            'Hamburguesa vegetal, huevo y patatas' : {id: 111, desc: '' , precio: 11 , } , 
+            'Seitan a la plancha, huevo y patatas' : {id: 112, desc: '' , precio: 11 , } , 
         } ,
                 
     } 
@@ -49,9 +49,9 @@
         clone.querySelector('h1').innerHTML = key
         for (const item in comidaVegetariana[key]) {
             const clone2 = document.querySelector('#clone2').content.cloneNode(true)
-            clone2.querySelector('h2').innerHTML = item 
+            clone2.querySelector('h2').innerHTML = `${comidaVegetariana[key][item].id}. ${item}` 
             clone2.querySelector('div p').innerHTML = comidaVegetariana[key][item].desc;
-            clone2.querySelector('article > p').innerHTML = `${comidaVegetariana[key][item].precio.toFixed(2)} €`;
+            clone2.querySelector('#precio').innerHTML = `${comidaVegetariana[key][item].precio.toFixed(2)} €`;
             clone.appendChild(clone2)
         }   
         comidaVegetarianaList.appendChild(clone)

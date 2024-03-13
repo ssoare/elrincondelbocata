@@ -13,19 +13,19 @@
 <script>
     // @ts-nocheck
     const platosCombinados  = {
-        'Lomo, bacon, huevo y patatas' : { desc: '' , precio: 11.50 , } , 
-        'Pechuga, huevo y patatas' : { desc: '' , precio: 11.50 , } , 
-        'Secreto ibérico y patatas' : { desc: '' , precio: 12.50 , } , 
-        'Chuletas de cordero y patatas' : { desc: '' , precio: 17 , } , 
-        'Entrecot de ternera y patatas' : { desc: '' , precio: 17.50 , } , 
-        'Sepia a la plancha con salsa verde' : { desc: '' , precio: 16 , } , 
-        'Emperador a la plancha con salsa verde' : { desc: '' , precio: 16 , } , 
+        'Lomo, bacon, huevo y patatas' : {id: 64, desc: '' , precio: 11.50 , } , 
+        'Pechuga, huevo y patatas' : {id: 66, desc: '' , precio: 11.50 , } , 
+        'Secreto ibérico y patatas' : {id: 72, desc: '' , precio: 12.50 , } , 
+        'Chuletas de cordero y patatas' : {id: 73, desc: '' , precio: 17 , } , 
+        'Entrecot de ternera y patatas' : {id: 75, desc: '' , precio: 17.50 , } , 
+        'Sepia a la plancha con salsa verde' : {id: 78, desc: '' , precio: 16 , } , 
+        'Emperador a la plancha con salsa verde' : {id: 79, desc: '' , precio: 16 , } , 
                 
     } 
     const platosCombinadosList = document.querySelector('#platosCombinadosList')
     for (const key in platosCombinados) {
         const clone = document.querySelector('#platosCombinadosTemplate').content.cloneNode(true)
-        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('h2').innerHTML = `${platosCombinados[key].id}. ${key}`
         clone.querySelector('div p').innerHTML = `${platosCombinados[key].desc}`
         clone.querySelector('article > p').innerHTML = `${platosCombinados[key].precio.toFixed(2)} €`
         platosCombinadosList?.appendChild(clone)

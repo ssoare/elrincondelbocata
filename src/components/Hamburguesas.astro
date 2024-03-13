@@ -13,23 +13,14 @@
 <script>
     // @ts-nocheck
     const hamburguesas  = {
-        'Hamburguesa, queso y huevo' : {
-            desc: '' ,
-            precio: 7 ,
-        } , 
-        'Hamburguesa Especial' : {
-            desc: 'Lechuga, queso, bacon, tomate, cebolla frita y huevo' ,
-            precio: 8 ,
-        } ,
-         'Hamburguesa Roquefort' : {
-            desc: 'Salsa roquefort, lechuga y bacon' ,
-            precio: 7.50 ,
-        } , 
+        'Hamburguesa, queso y huevo' : {id: 31, desc: '' , precio: 7 , } , 
+        'Hamburguesa Especial' : {id: 33, desc: 'Lechuga, queso, bacon, tomate, cebolla frita y huevo' , precio: 8 , } ,
+         'Hamburguesa Roquefort' : {id: 34, desc: 'Salsa roquefort, lechuga y bacon' , precio: 7.50 , } , 
     } 
     const hamburguesasList = document.querySelector('#hamburguesasList')
     for (const key in hamburguesas) {
         const clone = document.querySelector('#hamburguesasTemplate').content.cloneNode(true)
-        clone.querySelector('h2').innerHTML = key
+        clone.querySelector('h2').innerHTML = `${hamburguesas[key].id}. ${key}`
         clone.querySelector('div p').innerHTML = `${hamburguesas[key].desc}`
         clone.querySelector('article > p').innerHTML = `${hamburguesas[key].precio.toFixed(2)} €`
         hamburguesasList.appendChild(clone)
